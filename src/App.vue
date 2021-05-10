@@ -19,7 +19,7 @@
         </p>
       </div>
       <button
-        class="button is-success is-outlined"
+        class="mb-6 button is-success is-outlined"
         type="button"
         @click="logout()"
         v-if="isLogged"
@@ -47,11 +47,22 @@ export default {
 </script>
 
 <style>
-#footer {
+html,
+body {
+  height: 100%;
+}
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem; /* Footer height */
+  height: 2.5rem;
 }
 
 #page-container {
@@ -60,8 +71,8 @@ export default {
 }
 
 #content-wrap {
-  padding-bottom: 2.5rem; /* Footer height */
-}
+  padding-bottom: 2.5rem; 
+} */
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
