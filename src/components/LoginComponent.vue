@@ -66,7 +66,7 @@ export default {
           password: this.password,
         })
         .then(() => {
-          this.$router.push({ name: "About" });
+          this.$router.push({ name: "Dashboard" });
         })
         .catch((err) => {
           console.log(err);

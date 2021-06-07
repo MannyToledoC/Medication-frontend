@@ -1,11 +1,7 @@
 <template>
   <div id="page-container">
     <div id="content-wrap">
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about" v-if="isLogged">About</router-link>
-        <router-link to="/login" v-else>Login</router-link>
-      </div>
+      <NavComponent />
       <router-view />
     </div>
 
@@ -32,8 +28,10 @@
 
 <script>
 import { mapGetters } from "vuex";
+import NavComponent from "@/components/NavComponent.vue";
 
 export default {
+  components: { NavComponent },
   computed: {
     ...mapGetters(["isLogged"]),
   },
@@ -51,11 +49,23 @@ html,
 body {
   height: 100%;
 }
+::selection {
+  background: #42b983; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #42b983; /* Gecko Browsers */
+}
 
 #page-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
+  /* height: 100%; */
+}
+
+#content-wrap {
+  flex: 1;
+  min-height: 100vh;
 }
 
 /* #footer {
@@ -71,7 +81,7 @@ body {
 }
 
 #content-wrap {
-  padding-bottom: 2.5rem; 
+  padding-bottom: 2.5rem;
 } */
 
 #app {
@@ -80,18 +90,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
